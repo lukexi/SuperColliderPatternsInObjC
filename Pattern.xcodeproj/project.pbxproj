@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C22DC6B4157B3073000004C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DC6B3157B3073000004C3 /* Foundation.framework */; };
+		C22DC6C2157B3073000004C3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DC6C1157B3073000004C3 /* SenTestingKit.framework */; };
+		C22DC6C4157B3073000004C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DC6C3157B3073000004C3 /* UIKit.framework */; };
+		C22DC6C5157B3073000004C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DC6B3157B3073000004C3 /* Foundation.framework */; };
+		C22DC6C8157B3073000004C3 /* libPattern.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DC6B0157B3073000004C3 /* libPattern.a */; };
+		C22DC6CE157B3073000004C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22DC6CC157B3073000004C3 /* InfoPlist.strings */; };
+		C22DC6D1157B3073000004C3 /* PatternTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6D0157B3073000004C3 /* PatternTests.m */; };
+		C22DC6F7157B310D000004C3 /* MFMountainLionGCDARCWorkaround.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6DE157B310D000004C3 /* MFMountainLionGCDARCWorkaround.h */; };
+		C22DC6F8157B310D000004C3 /* NSArray+RTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6DF157B310D000004C3 /* NSArray+RTAdditions.h */; };
+		C22DC6F9157B310D000004C3 /* NSArray+RTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E0157B310D000004C3 /* NSArray+RTAdditions.m */; };
+		C22DC6FA157B310D000004C3 /* NSArray+RTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E0157B310D000004C3 /* NSArray+RTAdditions.m */; };
+		C22DC6FB157B310D000004C3 /* NSNumber+RTDo.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6E1157B310D000004C3 /* NSNumber+RTDo.h */; };
+		C22DC6FC157B310D000004C3 /* NSNumber+RTDo.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E2157B310D000004C3 /* NSNumber+RTDo.m */; };
+		C22DC6FD157B310D000004C3 /* NSNumber+RTDo.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E2157B310D000004C3 /* NSNumber+RTDo.m */; };
+		C22DC6FE157B310D000004C3 /* NSObject+RTEmbedInStream.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6E3157B310D000004C3 /* NSObject+RTEmbedInStream.h */; };
+		C22DC6FF157B310D000004C3 /* NSObject+RTEmbedInStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E4157B310D000004C3 /* NSObject+RTEmbedInStream.m */; };
+		C22DC700157B310D000004C3 /* NSObject+RTEmbedInStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E4157B310D000004C3 /* NSObject+RTEmbedInStream.m */; };
+		C22DC701157B310D000004C3 /* RTClock.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6E5157B310D000004C3 /* RTClock.h */; };
+		C22DC702157B310D000004C3 /* RTClock.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E6157B310D000004C3 /* RTClock.m */; };
+		C22DC703157B310D000004C3 /* RTClock.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E6157B310D000004C3 /* RTClock.m */; };
+		C22DC704157B310D000004C3 /* RTEventStreamPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6E7157B310D000004C3 /* RTEventStreamPlayer.h */; };
+		C22DC705157B310D000004C3 /* RTEventStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E8157B310D000004C3 /* RTEventStreamPlayer.m */; };
+		C22DC706157B310D000004C3 /* RTEventStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6E8157B310D000004C3 /* RTEventStreamPlayer.m */; };
+		C22DC707157B310D000004C3 /* RTFilterPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6E9157B310D000004C3 /* RTFilterPattern.h */; };
+		C22DC708157B310D000004C3 /* RTFilterPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EA157B310D000004C3 /* RTFilterPattern.m */; };
+		C22DC709157B310D000004C3 /* RTFilterPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EA157B310D000004C3 /* RTFilterPattern.m */; };
+		C22DC70A157B310D000004C3 /* RTFuncStream.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6EB157B310D000004C3 /* RTFuncStream.h */; };
+		C22DC70B157B310D000004C3 /* RTFuncStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EC157B310D000004C3 /* RTFuncStream.m */; };
+		C22DC70C157B310D000004C3 /* RTFuncStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EC157B310D000004C3 /* RTFuncStream.m */; };
+		C22DC70D157B310D000004C3 /* RTListPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6ED157B310D000004C3 /* RTListPattern.h */; };
+		C22DC70E157B310D000004C3 /* RTListPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EE157B310D000004C3 /* RTListPattern.m */; };
+		C22DC70F157B310D000004C3 /* RTListPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6EE157B310D000004C3 /* RTListPattern.m */; };
+		C22DC710157B310D000004C3 /* RTPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6EF157B310D000004C3 /* RTPattern.h */; };
+		C22DC711157B310D000004C3 /* RTPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F0157B310D000004C3 /* RTPattern.m */; };
+		C22DC712157B310D000004C3 /* RTPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F0157B310D000004C3 /* RTPattern.m */; };
+		C22DC713157B310D000004C3 /* RTPattern+More.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F1157B310D000004C3 /* RTPattern+More.h */; };
+		C22DC714157B310D000004C3 /* RTPattern+More.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F2157B310D000004C3 /* RTPattern+More.m */; };
+		C22DC715157B310D000004C3 /* RTPattern+More.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F2157B310D000004C3 /* RTPattern+More.m */; };
+		C22DC716157B310D000004C3 /* RTRoutine.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F3157B310D000004C3 /* RTRoutine.h */; };
+		C22DC717157B310D000004C3 /* RTRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F4157B310D000004C3 /* RTRoutine.m */; };
+		C22DC718157B310D000004C3 /* RTRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F4157B310D000004C3 /* RTRoutine.m */; };
+		C22DC719157B310D000004C3 /* RTStream.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F5157B310D000004C3 /* RTStream.h */; };
+		C22DC71A157B310D000004C3 /* RTStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F6157B310D000004C3 /* RTStream.m */; };
+		C22DC71B157B310D000004C3 /* RTStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C22DC6F6157B310D000004C3 /* RTStream.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C22DC6C6157B3073000004C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C22DC6A7157B3073000004C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C22DC6AF157B3073000004C3;
+			remoteInfo = Pattern;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C22DC6B0157B3073000004C3 /* libPattern.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPattern.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22DC6B3157B3073000004C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C22DC6B7157B3073000004C3 /* Pattern-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pattern-Prefix.pch"; sourceTree = "<group>"; };
+		C22DC6B8157B3073000004C3 /* Pattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
+		C22DC6C0157B3073000004C3 /* PatternTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatternTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22DC6C1157B3073000004C3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C22DC6C3157B3073000004C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C22DC6CB157B3073000004C3 /* PatternTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PatternTests-Info.plist"; sourceTree = "<group>"; };
+		C22DC6CD157B3073000004C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C22DC6CF157B3073000004C3 /* PatternTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternTests.h; sourceTree = "<group>"; };
+		C22DC6D0157B3073000004C3 /* PatternTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PatternTests.m; sourceTree = "<group>"; };
+		C22DC6DE157B310D000004C3 /* MFMountainLionGCDARCWorkaround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFMountainLionGCDARCWorkaround.h; path = Pattern/Classes/MFMountainLionGCDARCWorkaround.h; sourceTree = "<group>"; };
+		C22DC6DF157B310D000004C3 /* NSArray+RTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+RTAdditions.h"; path = "Pattern/Classes/NSArray+RTAdditions.h"; sourceTree = "<group>"; };
+		C22DC6E0157B310D000004C3 /* NSArray+RTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+RTAdditions.m"; path = "Pattern/Classes/NSArray+RTAdditions.m"; sourceTree = "<group>"; };
+		C22DC6E1157B310D000004C3 /* NSNumber+RTDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+RTDo.h"; path = "Pattern/Classes/NSNumber+RTDo.h"; sourceTree = "<group>"; };
+		C22DC6E2157B310D000004C3 /* NSNumber+RTDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+RTDo.m"; path = "Pattern/Classes/NSNumber+RTDo.m"; sourceTree = "<group>"; };
+		C22DC6E3157B310D000004C3 /* NSObject+RTEmbedInStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+RTEmbedInStream.h"; path = "Pattern/Classes/NSObject+RTEmbedInStream.h"; sourceTree = "<group>"; };
+		C22DC6E4157B310D000004C3 /* NSObject+RTEmbedInStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+RTEmbedInStream.m"; path = "Pattern/Classes/NSObject+RTEmbedInStream.m"; sourceTree = "<group>"; };
+		C22DC6E5157B310D000004C3 /* RTClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTClock.h; path = Pattern/Classes/RTClock.h; sourceTree = "<group>"; };
+		C22DC6E6157B310D000004C3 /* RTClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTClock.m; path = Pattern/Classes/RTClock.m; sourceTree = "<group>"; };
+		C22DC6E7157B310D000004C3 /* RTEventStreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTEventStreamPlayer.h; path = Pattern/Classes/RTEventStreamPlayer.h; sourceTree = "<group>"; };
+		C22DC6E8157B310D000004C3 /* RTEventStreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTEventStreamPlayer.m; path = Pattern/Classes/RTEventStreamPlayer.m; sourceTree = "<group>"; };
+		C22DC6E9157B310D000004C3 /* RTFilterPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTFilterPattern.h; path = Pattern/Classes/RTFilterPattern.h; sourceTree = "<group>"; };
+		C22DC6EA157B310D000004C3 /* RTFilterPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTFilterPattern.m; path = Pattern/Classes/RTFilterPattern.m; sourceTree = "<group>"; };
+		C22DC6EB157B310D000004C3 /* RTFuncStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTFuncStream.h; path = Pattern/Classes/RTFuncStream.h; sourceTree = "<group>"; };
+		C22DC6EC157B310D000004C3 /* RTFuncStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTFuncStream.m; path = Pattern/Classes/RTFuncStream.m; sourceTree = "<group>"; };
+		C22DC6ED157B310D000004C3 /* RTListPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTListPattern.h; path = Pattern/Classes/RTListPattern.h; sourceTree = "<group>"; };
+		C22DC6EE157B310D000004C3 /* RTListPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTListPattern.m; path = Pattern/Classes/RTListPattern.m; sourceTree = "<group>"; };
+		C22DC6EF157B310D000004C3 /* RTPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTPattern.h; path = Pattern/Classes/RTPattern.h; sourceTree = "<group>"; };
+		C22DC6F0157B310D000004C3 /* RTPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTPattern.m; path = Pattern/Classes/RTPattern.m; sourceTree = "<group>"; };
+		C22DC6F1157B310D000004C3 /* RTPattern+More.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RTPattern+More.h"; path = "Pattern/Classes/RTPattern+More.h"; sourceTree = "<group>"; };
+		C22DC6F2157B310D000004C3 /* RTPattern+More.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RTPattern+More.m"; path = "Pattern/Classes/RTPattern+More.m"; sourceTree = "<group>"; };
+		C22DC6F3157B310D000004C3 /* RTRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTRoutine.h; path = Pattern/Classes/RTRoutine.h; sourceTree = "<group>"; };
+		C22DC6F4157B310D000004C3 /* RTRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTRoutine.m; path = Pattern/Classes/RTRoutine.m; sourceTree = "<group>"; };
+		C22DC6F5157B310D000004C3 /* RTStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTStream.h; path = Pattern/Classes/RTStream.h; sourceTree = "<group>"; };
+		C22DC6F6157B310D000004C3 /* RTStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTStream.m; path = Pattern/Classes/RTStream.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C22DC6AD157B3073000004C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6B4157B3073000004C3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22DC6BC157B3073000004C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6C2157B3073000004C3 /* SenTestingKit.framework in Frameworks */,
+				C22DC6C4157B3073000004C3 /* UIKit.framework in Frameworks */,
+				C22DC6C5157B3073000004C3 /* Foundation.framework in Frameworks */,
+				C22DC6C8157B3073000004C3 /* libPattern.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C22DC6A5157B3073000004C3 = {
+			isa = PBXGroup;
+			children = (
+				C22DC6B5157B3073000004C3 /* Pattern */,
+				C22DC6C9157B3073000004C3 /* PatternTests */,
+				C22DC6B2157B3073000004C3 /* Frameworks */,
+				C22DC6B1157B3073000004C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C22DC6B1157B3073000004C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6B0157B3073000004C3 /* libPattern.a */,
+				C22DC6C0157B3073000004C3 /* PatternTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C22DC6B2157B3073000004C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6B3157B3073000004C3 /* Foundation.framework */,
+				C22DC6C1157B3073000004C3 /* SenTestingKit.framework */,
+				C22DC6C3157B3073000004C3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C22DC6B5157B3073000004C3 /* Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC71C157B3116000004C3 /* Classes */,
+				C22DC6B8157B3073000004C3 /* Pattern.h */,
+				C22DC6B6157B3073000004C3 /* Supporting Files */,
+			);
+			path = Pattern;
+			sourceTree = "<group>";
+		};
+		C22DC6B6157B3073000004C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6B7157B3073000004C3 /* Pattern-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C22DC6C9157B3073000004C3 /* PatternTests */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6CF157B3073000004C3 /* PatternTests.h */,
+				C22DC6D0157B3073000004C3 /* PatternTests.m */,
+				C22DC6CA157B3073000004C3 /* Supporting Files */,
+			);
+			path = PatternTests;
+			sourceTree = "<group>";
+		};
+		C22DC6CA157B3073000004C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6CB157B3073000004C3 /* PatternTests-Info.plist */,
+				C22DC6CC157B3073000004C3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C22DC71C157B3116000004C3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C22DC6DE157B310D000004C3 /* MFMountainLionGCDARCWorkaround.h */,
+				C22DC6DF157B310D000004C3 /* NSArray+RTAdditions.h */,
+				C22DC6E0157B310D000004C3 /* NSArray+RTAdditions.m */,
+				C22DC6E1157B310D000004C3 /* NSNumber+RTDo.h */,
+				C22DC6E2157B310D000004C3 /* NSNumber+RTDo.m */,
+				C22DC6E3157B310D000004C3 /* NSObject+RTEmbedInStream.h */,
+				C22DC6E4157B310D000004C3 /* NSObject+RTEmbedInStream.m */,
+				C22DC6E5157B310D000004C3 /* RTClock.h */,
+				C22DC6E6157B310D000004C3 /* RTClock.m */,
+				C22DC6E7157B310D000004C3 /* RTEventStreamPlayer.h */,
+				C22DC6E8157B310D000004C3 /* RTEventStreamPlayer.m */,
+				C22DC6E9157B310D000004C3 /* RTFilterPattern.h */,
+				C22DC6EA157B310D000004C3 /* RTFilterPattern.m */,
+				C22DC6EB157B310D000004C3 /* RTFuncStream.h */,
+				C22DC6EC157B310D000004C3 /* RTFuncStream.m */,
+				C22DC6ED157B310D000004C3 /* RTListPattern.h */,
+				C22DC6EE157B310D000004C3 /* RTListPattern.m */,
+				C22DC6EF157B310D000004C3 /* RTPattern.h */,
+				C22DC6F0157B310D000004C3 /* RTPattern.m */,
+				C22DC6F1157B310D000004C3 /* RTPattern+More.h */,
+				C22DC6F2157B310D000004C3 /* RTPattern+More.m */,
+				C22DC6F3157B310D000004C3 /* RTRoutine.h */,
+				C22DC6F4157B310D000004C3 /* RTRoutine.m */,
+				C22DC6F5157B310D000004C3 /* RTStream.h */,
+				C22DC6F6157B310D000004C3 /* RTStream.m */,
+			);
+			name = Classes;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C22DC6AE157B3073000004C3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6F7157B310D000004C3 /* MFMountainLionGCDARCWorkaround.h in Headers */,
+				C22DC6F8157B310D000004C3 /* NSArray+RTAdditions.h in Headers */,
+				C22DC6FB157B310D000004C3 /* NSNumber+RTDo.h in Headers */,
+				C22DC6FE157B310D000004C3 /* NSObject+RTEmbedInStream.h in Headers */,
+				C22DC701157B310D000004C3 /* RTClock.h in Headers */,
+				C22DC704157B310D000004C3 /* RTEventStreamPlayer.h in Headers */,
+				C22DC707157B310D000004C3 /* RTFilterPattern.h in Headers */,
+				C22DC70A157B310D000004C3 /* RTFuncStream.h in Headers */,
+				C22DC70D157B310D000004C3 /* RTListPattern.h in Headers */,
+				C22DC710157B310D000004C3 /* RTPattern.h in Headers */,
+				C22DC713157B310D000004C3 /* RTPattern+More.h in Headers */,
+				C22DC716157B310D000004C3 /* RTRoutine.h in Headers */,
+				C22DC719157B310D000004C3 /* RTStream.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C22DC6AF157B3073000004C3 /* Pattern */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22DC6D4157B3073000004C3 /* Build configuration list for PBXNativeTarget "Pattern" */;
+			buildPhases = (
+				C22DC6AC157B3073000004C3 /* Sources */,
+				C22DC6AD157B3073000004C3 /* Frameworks */,
+				C22DC6AE157B3073000004C3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pattern;
+			productName = Pattern;
+			productReference = C22DC6B0157B3073000004C3 /* libPattern.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C22DC6BF157B3073000004C3 /* PatternTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22DC6D7157B3073000004C3 /* Build configuration list for PBXNativeTarget "PatternTests" */;
+			buildPhases = (
+				C22DC6BB157B3073000004C3 /* Sources */,
+				C22DC6BC157B3073000004C3 /* Frameworks */,
+				C22DC6BD157B3073000004C3 /* Resources */,
+				C22DC6BE157B3073000004C3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C22DC6C7157B3073000004C3 /* PBXTargetDependency */,
+			);
+			name = PatternTests;
+			productName = PatternTests;
+			productReference = C22DC6C0157B3073000004C3 /* PatternTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C22DC6A7157B3073000004C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = Tree;
+			};
+			buildConfigurationList = C22DC6AA157B3073000004C3 /* Build configuration list for PBXProject "Pattern" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C22DC6A5157B3073000004C3;
+			productRefGroup = C22DC6B1157B3073000004C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C22DC6AF157B3073000004C3 /* Pattern */,
+				C22DC6BF157B3073000004C3 /* PatternTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C22DC6BD157B3073000004C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6CE157B3073000004C3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C22DC6BE157B3073000004C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C22DC6AC157B3073000004C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6F9157B310D000004C3 /* NSArray+RTAdditions.m in Sources */,
+				C22DC6FC157B310D000004C3 /* NSNumber+RTDo.m in Sources */,
+				C22DC6FF157B310D000004C3 /* NSObject+RTEmbedInStream.m in Sources */,
+				C22DC702157B310D000004C3 /* RTClock.m in Sources */,
+				C22DC705157B310D000004C3 /* RTEventStreamPlayer.m in Sources */,
+				C22DC708157B310D000004C3 /* RTFilterPattern.m in Sources */,
+				C22DC70B157B310D000004C3 /* RTFuncStream.m in Sources */,
+				C22DC70E157B310D000004C3 /* RTListPattern.m in Sources */,
+				C22DC711157B310D000004C3 /* RTPattern.m in Sources */,
+				C22DC714157B310D000004C3 /* RTPattern+More.m in Sources */,
+				C22DC717157B310D000004C3 /* RTRoutine.m in Sources */,
+				C22DC71A157B310D000004C3 /* RTStream.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22DC6BB157B3073000004C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22DC6D1157B3073000004C3 /* PatternTests.m in Sources */,
+				C22DC6FA157B310D000004C3 /* NSArray+RTAdditions.m in Sources */,
+				C22DC6FD157B310D000004C3 /* NSNumber+RTDo.m in Sources */,
+				C22DC700157B310D000004C3 /* NSObject+RTEmbedInStream.m in Sources */,
+				C22DC703157B310D000004C3 /* RTClock.m in Sources */,
+				C22DC706157B310D000004C3 /* RTEventStreamPlayer.m in Sources */,
+				C22DC709157B310D000004C3 /* RTFilterPattern.m in Sources */,
+				C22DC70C157B310D000004C3 /* RTFuncStream.m in Sources */,
+				C22DC70F157B310D000004C3 /* RTListPattern.m in Sources */,
+				C22DC712157B310D000004C3 /* RTPattern.m in Sources */,
+				C22DC715157B310D000004C3 /* RTPattern+More.m in Sources */,
+				C22DC718157B310D000004C3 /* RTRoutine.m in Sources */,
+				C22DC71B157B310D000004C3 /* RTStream.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C22DC6C7157B3073000004C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C22DC6AF157B3073000004C3 /* Pattern */;
+			targetProxy = C22DC6C6157B3073000004C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C22DC6CC157B3073000004C3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C22DC6CD157B3073000004C3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C22DC6D2157B3073000004C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C22DC6D3157B3073000004C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C22DC6D5157B3073000004C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Pattern.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pattern/Pattern-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C22DC6D6157B3073000004C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Pattern.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pattern/Pattern-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C22DC6D8157B3073000004C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pattern/Pattern-Prefix.pch";
+				INFOPLIST_FILE = "PatternTests/PatternTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C22DC6D9157B3073000004C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pattern/Pattern-Prefix.pch";
+				INFOPLIST_FILE = "PatternTests/PatternTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C22DC6AA157B3073000004C3 /* Build configuration list for PBXProject "Pattern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22DC6D2157B3073000004C3 /* Debug */,
+				C22DC6D3157B3073000004C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C22DC6D4157B3073000004C3 /* Build configuration list for PBXNativeTarget "Pattern" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22DC6D5157B3073000004C3 /* Debug */,
+				C22DC6D6157B3073000004C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C22DC6D7157B3073000004C3 /* Build configuration list for PBXNativeTarget "PatternTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22DC6D8157B3073000004C3 /* Debug */,
+				C22DC6D9157B3073000004C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C22DC6A7157B3073000004C3 /* Project object */;
+}
