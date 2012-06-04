@@ -12,9 +12,14 @@
 
 - (void)rt_do:(RTDoFunction)function
 {
+    BOOL stop = NO;
     for (NSUInteger i = 0; i < [self unsignedIntegerValue]; i++)
     {
-        function([NSNumber numberWithUnsignedInteger:i]);
+        function([NSNumber numberWithUnsignedInteger:i], &stop);
+        if (stop)
+        {
+            break;
+        }
     }
 }
 

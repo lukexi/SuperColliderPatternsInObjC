@@ -27,8 +27,12 @@
     __block id localInValue = inValue;
     
     id repeatsValue = [self.repeats rt_value:inValue];
-    [repeatsValue rt_do:^(id inValue) {
+    [repeatsValue rt_do:^(id inValue, BOOL *stop) {
         localInValue = [self.pattern embedInStream:yield inValue:localInValue];
+        if (localInValue == RTStopToken)
+        {
+            *stop = YES;
+        }
     }];
     return localInValue;
 }
@@ -75,8 +79,12 @@
     {
         if ((nextN = [nStream rt_next:localInValue]))
         {
-            [[nextN rt_abs] rt_do:^(id inValue) {
+            [[nextN rt_abs] rt_do:^(id inValue, BOOL *stop) {
                 localInValue = yield([nextPatternValue copy]);
+                if (localInValue == RTStopToken)
+                {
+                    *stop = YES;
+                }
             }];
         }
         else

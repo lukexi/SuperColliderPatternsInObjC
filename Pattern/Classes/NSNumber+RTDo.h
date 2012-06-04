@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^RTDoFunction)(NSNumber *index);
+typedef void(^RTDoFunction)(NSNumber *index, BOOL *stop);
 typedef id(^RTCollectFunction)(NSNumber *index);
 
 @protocol RTDo <NSObject>

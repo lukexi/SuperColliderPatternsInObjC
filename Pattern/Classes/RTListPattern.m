@@ -36,14 +36,20 @@
 - (id)embedInStream:(RTYieldBlock)yield inValue:(id)inValue
 {
     __block id item;
+    __block id localInValue = inValue;
     NSInteger offsetValue = [[self.offset rt_value] integerValue];
     
-    [[self.repeats rt_value:inValue] rt_do:^(id inValue) {
+    [[self.repeats rt_value:inValue] rt_do:^(id inValue, BOOL *stop) {
+        localInValue = inValue;
+        RTStopAndReturnIfStopToken(localInValue);
         __block NSUInteger index = 0;
-        [[NSNumber numberWithUnsignedInteger:[self.list count]] rt_do:^(id inValue) {
+        [[NSNumber numberWithUnsignedInteger:[self.list count]] rt_do:^(id inValue, BOOL *stop) {
+            localInValue = inValue;
+            RTStopAndReturnIfStopToken(localInValue);
             item = [self.list rt_wrapObjectAtIndex:index + offsetValue];
-            inValue = [item embedInStream:yield inValue:inValue];
+            localInValue = [item embedInStream:yield inValue:localInValue];
             index++;
+            RTStopAndReturnIfStopToken(localInValue);
         }];
     }];
     return inValue;
@@ -64,11 +70,16 @@
     __block id localInValue = inValue;
     NSArray *scrambled = [self.list rt_scramble];
     
-    [[self.repeats rt_value:inValue] rt_do:^(id inValue) {
+    [[self.repeats rt_value:inValue] rt_do:^(id inValue, BOOL *stop) {
+        localInValue = inValue;
+        RTStopAndReturnIfStopToken(localInValue);
         __block NSUInteger index = 0;
-        [[NSNumber numberWithUnsignedInteger:[scrambled count]] rt_do:^(id inValue) {
+        [[NSNumber numberWithUnsignedInteger:[scrambled count]] rt_do:^(id inValue, BOOL *stop) {
+            localInValue = inValue;
+            RTStopAndReturnIfStopToken(localInValue);
             item = [scrambled rt_wrapObjectAtIndex:index];
             localInValue = [item embedInStream:yield inValue:inValue];
+            RTStopAndReturnIfStopToken(localInValue);
             index++;
         }];
     }];
@@ -88,9 +99,12 @@
 {
     __block id item;
     __block id localInValue = inValue;
-    [[self.repeats rt_value:inValue] rt_do:^(id inValue) {
+    [[self.repeats rt_value:inValue] rt_do:^(id inValue, BOOL *stop) {
+        localInValue = inValue;
+        RTStopAndReturnIfStopToken(localInValue);
         item = [self.list rt_choose];
         localInValue = [item embedInStream:yield inValue:inValue];
+        RTStopAndReturnIfStopToken(localInValue);
     }];
     return localInValue;
 }

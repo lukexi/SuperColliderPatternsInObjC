@@ -22,6 +22,10 @@
     while ((outValue = [self rt_next:inValue]))
     {
         inValue = yield(outValue);
+        if (inValue == RTStopToken)
+        {
+            break;
+        }
     }
     
     return inValue;
@@ -41,9 +45,14 @@
 - (void)rt_do:(RTDoFunction)function
 {
     id outValue;
+    BOOL stop = NO;
     while ((outValue = [self rt_next]))
     {
-        function(outValue);
+        function(outValue, &stop);
+        if (stop)
+        {
+            break;
+        }
     }
 }
 

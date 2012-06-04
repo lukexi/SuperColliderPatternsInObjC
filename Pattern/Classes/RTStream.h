@@ -10,6 +10,15 @@
 #import "NSNumber+RTDo.h"
 #import "NSObject+RTEmbedInStream.h"
 
+static NSString *RTStopToken = @"RTStopToken";
+
+#define RTStopAndReturnIfStopToken(inValueToCheck) \
+if (inValueToCheck == RTStopToken)\
+{\
+    *stop = YES;\
+    return;\
+}
+
 @interface RTStream : NSObject <RTEmbedInStream, RTDo>
 
 - (NSArray *)nextN:(NSUInteger)nextN;

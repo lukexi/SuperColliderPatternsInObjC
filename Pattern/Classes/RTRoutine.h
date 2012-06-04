@@ -33,7 +33,6 @@
  outValue = [routine rt_next];
  // Out value is now nil.
  */
-static NSString *RTStopToken = @"RTStopToken";
 
 @interface RTRoutine : RTStream
 

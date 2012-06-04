@@ -86,7 +86,7 @@
         return inValue;
     }
     
-    [[self.length rt_value:inValue] rt_do:^(id inValue) {
+    [[self.length rt_value:inValue] rt_do:^(id inValue, BOOL *stop) {
         lowValue = [lowStream rt_next:inValue];
         highValue = [highStream rt_next:inValue];
         stepValue = [stepStream rt_next:inValue];
@@ -96,6 +96,10 @@
         }
         currentValue = [[self calcNext:currentValue step:stepValue] rt_foldLow:lowValue high:highValue];
         localInValue = yield(currentValue);
+        if (localInValue == RTStopToken)
+        {
+            *stop = YES;
+        }
     }];
     
     return localInValue;
@@ -134,7 +138,9 @@
     lowStream = [self.low rt_asStream];
     highStream = [self.high rt_asStream];
     
-    [[self.length rt_value:inValue] rt_do:^(id inValue) {
+    [[self.length rt_value:inValue] rt_do:^(id inValue, BOOL *stop) {
+        localInValue = inValue;
+        RTStopAndReturnIfStopToken(localInValue);
         lowValue = [lowStream rt_next:localInValue];
         highValue = [highStream rt_next:localInValue];
         if (!lowValue || !highValue)
@@ -143,6 +149,7 @@
         }
         
         localInValue = yield([lowValue rt_rangedRandAsLowWithHigh:highValue]);
+        RTStopAndReturnIfStopToken(localInValue);
     }];
     
     return localInValue;
