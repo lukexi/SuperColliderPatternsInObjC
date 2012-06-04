@@ -49,15 +49,20 @@
     NSLog(@"Hi");
 }
 
-- (void)testStop
+- (void)testEarlyStop
 {
     RTRoutine *routine = [RTRoutine routineWithBlock:^(RTYieldBlock yield, id inValue) {
-        NSLog(@"INVALUE1 %@", inValue);
-        inValue = yield(@"a");
-        NSLog(@"INVALUE2 %@", inValue);
-        inValue = yield(@"b");
-        NSLog(@"INVALUE3 %@", inValue);
-        yield(inValue);
+        
+        for (NSUInteger i = 0; i < 1000; i++)
+        {
+            inValue = yield([NSNumber numberWithUnsignedInt:i]);
+            if (inValue == RTStopToken)
+            {
+                NSLog(@"Breaking early in routine!");
+                break;
+            }
+        }
+        STAssertEquals(inValue, RTStopToken, @"Routine should stop early with RTStopToken");
     }];
     
     [routine rt_next];
@@ -66,7 +71,7 @@
 }
 
 // We run tons of these to make sure Routine memory management is sound
-- (void)testHundredsOfPSeqs
+- (void)NOPEtestHundredsOfPSeqs
 {
     for (NSUInteger i = 0; i < 100; i++)
     {
