@@ -41,3 +41,9 @@ typedef NSArray *(^PSCollectPairsBlock)(id left, id right);
                                             repeats:(NSUInteger)repeats;
 
 @end
+
+@interface NSArray (WeakCopy)
+
+- (NSArray *)rt_weakCopy;
+
+@end

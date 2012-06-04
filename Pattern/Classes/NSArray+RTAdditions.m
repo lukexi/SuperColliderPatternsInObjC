@@ -143,3 +143,17 @@
 }
 
 @end
+
+@implementation NSArray (WeakCopy)
+
+- (NSArray *)rt_weakCopy
+{
+    NSUInteger capacity = 0;
+    CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
+    // We create a weak reference array
+    NSMutableArray *mutableWeakArray = (__bridge_transfer NSMutableArray *)(CFArrayCreateMutable(0, capacity, &callbacks));
+    [mutableWeakArray addObjectsFromArray:self];
+    return mutableWeakArray;
+}
+
+@end
