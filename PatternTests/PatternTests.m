@@ -28,15 +28,15 @@
 - (void)testRoutine
 {
     RTRoutine *routine = [RTRoutine routineWithBlock:^(RTYieldBlock yield, id inValue) {
-        inValue = yield(@4);
-        inValue = yield(@5);
+        inValue = yield(@"a");
+        inValue = yield(@"b");
         yield(inValue);
     }];
     
     NSNumber *yield1 = [routine rt_next];
-    STAssertEquals(yield1, @4, @"Yield1 should yield the NSNumber 4");
+    STAssertEquals(yield1, @"a", @"Yield1 should yield the NSString 'a'");
     NSNumber *yield2 = [routine rt_next:@"Cheese"];
-    STAssertEquals(yield2, @5, @"Yield1 should yield the NSNumber 5");
+    STAssertEquals(yield2, @"b", @"Yield1 should yield the NSString 'b'");
     NSString *yield3 = [routine rt_next];
     STAssertEquals(yield3, @"Cheese", @"Yield3 should be the passed in value");
     
@@ -47,6 +47,45 @@
     routine = nil;
     
     NSLog(@"Hi");
+}
+
+- (void)testStop
+{
+    RTRoutine *routine = [RTRoutine routineWithBlock:^(RTYieldBlock yield, id inValue) {
+        NSLog(@"INVALUE1 %@", inValue);
+        inValue = yield(@"a");
+        NSLog(@"INVALUE2 %@", inValue);
+        inValue = yield(@"b");
+        NSLog(@"INVALUE3 %@", inValue);
+        yield(inValue);
+    }];
+    
+    [routine rt_next];
+    
+    routine = nil;
+}
+
+// We run tons of these to make sure Routine memory management is sound
+- (void)testHundredsOfPSeqs
+{
+    for (NSUInteger i = 0; i < 100; i++)
+    {
+        RTPSeq *PSeq = [RTPSeq PSeqWithList:@[ @1, @2, @3, @4 ] repeats:@3];
+        
+        RTRoutine *routine = [PSeq rt_asStream];
+        
+        for (NSUInteger i = 0; i < 2; i++)
+        {
+            NSNumber *yield1 = [routine rt_next];
+            STAssertEquals(yield1, @1, @"Yield1 should yield the NSNumber 1");
+            NSNumber *yield2 = [routine rt_next];
+            STAssertEquals(yield2, @2, @"Yield2 should yield the NSNumber 2");
+            NSNumber *yield3 = [routine rt_next];
+            STAssertEquals(yield3, @3, @"Yield3 should yield the NSNumber 3");
+            NSNumber *yield4 = [routine rt_next];
+            STAssertEquals(yield4, @4, @"Yield4 should yield the NSNumber 4");
+        }
+    }
 }
 
 @end

@@ -39,11 +39,12 @@
 
 - (void)dealloc
 {
+    NSLog(@"Deallocating and setting context to null for routine %@", self);
     dispatch_queue_set_specific(_routineQueue, &kRoutineSelfKey, NULL, NULL);
     [_condition lock];
     [_condition unlockWithCondition:SHOULD_YIELD];
     dispatch_release(_routineQueue);
-    NSLog(@"Deallocated routine!");
+    NSLog(@"Deallocated routine! %@", self);
 }
 
 static char kRoutineSelfKey;
@@ -57,8 +58,10 @@ static char kRoutineSelfKey;
         _condition = condition;
         
         dispatch_queue_set_specific(routineQueue, &kRoutineSelfKey, (__bridge void *)(self), NULL);
+        NSLog(@"Setting routine context to %@", self);
         RTYieldBlock yieldBlock = ^id(id returnValue) {
             __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
+            NSLog(@"Running yield block with routine! %@", routine);
             if (!routine)
             {
                 NSLog(@"Ending thread!");
@@ -78,11 +81,12 @@ static char kRoutineSelfKey;
         dispatch_async(routineQueue, ^{
             [condition lockWhenCondition:SHOULD_YIELD];
             __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
-            NSLog(@"Running routine block!");
+            NSLog(@"Running routine block with routine! %@", routine);
             if (routine)
             {
                 routineBlock(yieldBlock, routine.inValue);
                 NSLog(@"Routine block finished!");
+                __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
                 routine.yieldedValue = nil;
             }
             [condition unlockWithCondition:HAS_YIELDED];
