@@ -55,7 +55,9 @@
 // You must pass in a prototype dictionary when calling next: on RTPBind
 @property (nonatomic, strong) NSArray *patternPairs;
 
-- (RTEventStreamPlayer *)play:(NSArray *)blocks;
-- (RTEventStreamPlayer *)play:(NSArray *)blocks withPrototypeEvent:(NSDictionary *)prototypeEvent;
+- (RTEventStreamPlayer *)playBlocks:(NSArray *)eventBlocks;
+- (RTEventStreamPlayer *)playBlocks:(NSArray *)eventBlocks withPrototypeEvent:(NSDictionary *)prototypeEvent;
+- (RTEventStreamPlayer *)playBlock:(RTEventBlock)eventBlock;
+- (RTEventStreamPlayer *)playBlock:(RTEventBlock)eventBlock withPrototypeEvent:(NSDictionary *)prototypeEvent;
 
 @end

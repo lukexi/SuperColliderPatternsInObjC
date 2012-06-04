@@ -88,4 +88,18 @@
     }
 }
 
+- (void)testEventStreamPlayer
+{
+    RTPBind *bind = [RTPBind PBindWithPairs:@[
+                     @"dur", [RTPSeq PSeqWithList:@[@1, @2, @0.5] repeats:@5]
+                     ]];
+    RTEventStreamPlayer *player = [bind playBlock:^(NSDictionary *event) {
+        NSLog(@"Event! %@", event);
+    }];
+    
+    STAssertNotNil(player, @"RTPBind -playBlock: must return an RTEventStreamPlayer");
+    
+    NSLog(@"Player: %@", player);
+}
+
 @end

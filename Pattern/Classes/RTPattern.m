@@ -209,21 +209,31 @@
     return yield(nil);
 }
 
-- (RTEventStreamPlayer *)play:(NSArray *)blocks withPrototypeEvent:(NSDictionary *)prototypeEvent
+- (RTEventStreamPlayer *)playBlocks:(NSArray *)eventBlocks withPrototypeEvent:(NSDictionary *)prototypeEvent
 {
     RTEventStreamPlayer *eventStreamPlayer = [RTEventStreamPlayer eventStreamPlayerWithStream:[self rt_asStream]
-                                                                                       blocks:blocks];
+                                                                                       blocks:eventBlocks];
     eventStreamPlayer.prototypeEvent = prototypeEvent;
     [eventStreamPlayer play];
     return eventStreamPlayer;
 }
 
-- (RTEventStreamPlayer *)play:(NSArray *)blocks
+- (RTEventStreamPlayer *)playBlocks:(NSArray *)eventBlocks
 {
     RTEventStreamPlayer *eventStreamPlayer = [RTEventStreamPlayer eventStreamPlayerWithStream:[self rt_asStream]
-                                                                                       blocks:blocks];
+                                                                                       blocks:eventBlocks];
     [eventStreamPlayer play];
     return eventStreamPlayer;
+}
+
+- (RTEventStreamPlayer *)playBlock:(RTEventBlock)eventBlock
+{
+    return [self playBlocks:@[eventBlock]];
+}
+
+- (RTEventStreamPlayer *)playBlock:(RTEventBlock)eventBlock withPrototypeEvent:(NSDictionary *)prototypeEvent
+{
+    return [self playBlocks:@[eventBlock] withPrototypeEvent:prototypeEvent];
 }
 
 @end
