@@ -73,6 +73,8 @@
     // We signal the routineBlock so it can unblock and exit now that routineQueue is nil
 #if USE_DISPATCH_SEMAPHORES
     dispatch_semaphore_signal(_routineShouldContinue);
+    dispatch_release(_routineShouldContinue);
+    dispatch_release(_routineHasYielded);
 #else
     [_condition lock];
     [_condition unlockWithCondition:SHOULD_YIELD];
