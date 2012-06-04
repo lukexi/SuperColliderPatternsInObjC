@@ -157,4 +157,17 @@
     STAssertNil(weakEventStreamPlayer, @"Event stream player should be released after playing all its events");
 }
 
+- (void)testInfinitePattern
+{
+    __weak RTRoutine *weakRoutine;
+    @autoreleasepool {
+        RTRoutine *routine = [[RTPWhite PWhiteWithLow:@0 high:@1000 length:RTInf] rt_asStream];
+        weakRoutine = routine;
+        
+        [routine nextN:100];
+    }
+    
+    STAssertNil(weakRoutine, @"Infinite pattern should be deallocated when no longer referenced");
+}
+
 @end

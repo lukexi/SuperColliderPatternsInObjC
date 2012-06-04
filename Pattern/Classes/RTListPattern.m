@@ -51,6 +51,7 @@
             index++;
             RTStopAndReturnIfStopToken(localInValue);
         }];
+        RTStopAndReturnIfStopToken(localInValue);
     }];
     return inValue;
 }
@@ -82,6 +83,7 @@
             RTStopAndReturnIfStopToken(localInValue);
             index++;
         }];
+        RTStopAndReturnIfStopToken(localInValue);
     }];
     return localInValue;
 }

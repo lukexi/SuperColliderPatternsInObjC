@@ -15,7 +15,7 @@
 
 + (RTPattern *)PnLazyWithFunc:(RTFuncStreamFunc)patternFunc
 {
-    return [RTPn PnWithPattern:[RTPLazy PLazyWithFunc:patternFunc] repeats:[NSNumber numberWithInteger:INFINITY]];
+    return [RTPn PnWithPattern:[RTPLazy PLazyWithFunc:patternFunc] repeats:RTInf];
 }
 
 + (RTPattern *)PnLazySequenceWithGenerator:(RTPSequenceGenerator)generatorFunc repeats:(id)repeats
@@ -41,7 +41,7 @@
         float step = 2 * M_PI * ((float)i / (float)stepsValue);
         [sinValues addObject:[NSNumber numberWithFloat:sinf(step + phaseValue) * mul + add]];
     }
-    return [RTPSeq PSeqWithList:sinValues repeats:[NSNumber numberWithInteger:INFINITY] offset:@0];
+    return [RTPSeq PSeqWithList:sinValues repeats:RTInf offset:@0];
 }
 
 @end

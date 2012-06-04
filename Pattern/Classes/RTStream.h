@@ -15,6 +15,7 @@ static NSString *RTStopToken = @"RTStopToken";
 #define RTStopAndReturnIfStopToken(inValueToCheck) \
 if (inValueToCheck == RTStopToken)\
 {\
+    NSLog(@"STOPPIN EARLY IN RTStopAndReturnIfStopToken");\
     *stop = YES;\
     return;\
 }

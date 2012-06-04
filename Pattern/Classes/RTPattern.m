@@ -191,7 +191,7 @@
     
     __block BOOL sawNil = NO;
     
-    while (localInValue)
+    while (localInValue && localInValue != RTStopToken)
     {
         NSDictionary *prototypeEvent = localInValue;
         NSMutableDictionary *event = [prototypeEvent mutableCopy];
