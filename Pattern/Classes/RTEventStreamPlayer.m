@@ -43,13 +43,17 @@
 
 - (void)stop
 {
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(next) object:nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                             selector:@selector(next)
+                                               object:nil];
 }
 
 @end
 
 @interface RTEventStreamPlayer ()
+
 @property (nonatomic, strong) NSMutableArray *blocks;
+
 @end
 
 @implementation RTEventStreamPlayer
@@ -66,11 +70,10 @@
     self = [super init];
     if (self)
     {
-        self.stream = stream;
-        __weak RTStream *weakStream = stream;
         self.routine = [RTRoutine routineWithBlock:^(RTYieldBlock yield, id inValue) {
-            [weakStream embedInStream:yield inValue:inValue];
+            [stream embedInStream:yield inValue:inValue];
         }];
+        NSLog(@"evenstreamplayer routine is %@", self.routine);
         self.prototypeEvent = @{@"dur":@1.0};
     }
     return self;

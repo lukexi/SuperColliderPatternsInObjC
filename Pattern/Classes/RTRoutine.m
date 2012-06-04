@@ -39,7 +39,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"Deallocating and setting context to null for routine %@", self);
+    //NSLog(@"Deallocating and setting context to null for routine %@", self);
     dispatch_queue_set_specific(_routineQueue, &kRoutineSelfKey, NULL, NULL);
     [_condition lock];
     [_condition unlockWithCondition:SHOULD_YIELD];
@@ -58,22 +58,22 @@ static char kRoutineSelfKey;
         _condition = condition;
         
         dispatch_queue_set_specific(routineQueue, &kRoutineSelfKey, (__bridge void *)(self), NULL);
-        NSLog(@"Setting routine context to %@", self);
+        //NSLog(@"Setting routine context to %@", self);
         RTYieldBlock yieldBlock = ^id(id returnValue) {
             __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
-            NSLog(@"Running yield block with routine! %@", routine);
+            //NSLog(@"Running yield block with routine! %@", routine);
             if (!routine)
             {
-                NSLog(@"Ending thread!");
+                //NSLog(@"Ending thread!");
                 // Infinite routines can check for this to see if they should
                 // break and allow the thread to end.
                 return RTStopToken;
             }
             routine.yieldedValue = returnValue;
             [condition unlockWithCondition:HAS_YIELDED];
-            NSLog(@"Yielding %@ and awaiting SHOULD_YIELD", returnValue);
+            //NSLog(@"Yielding %@ and awaiting SHOULD_YIELD", returnValue);
             [condition lockWhenCondition:SHOULD_YIELD];
-            NSLog(@"Returning inValue and calculating next yield!");
+            //NSLog(@"Returning inValue and calculating next yield!");
             routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
             return routine.inValue;
         };
@@ -81,16 +81,16 @@ static char kRoutineSelfKey;
         dispatch_async(routineQueue, ^{
             [condition lockWhenCondition:SHOULD_YIELD];
             __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
-            NSLog(@"Running routine block with routine! %@", routine);
+            //NSLog(@"Running routine block with routine! %@", routine);
             if (routine)
             {
                 routineBlock(yieldBlock, routine.inValue);
-                NSLog(@"Routine block finished!");
+                //NSLog(@"Routine block finished!");
                 __unsafe_unretained RTRoutine *routine = (__bridge RTRoutine *)(dispatch_get_specific(&kRoutineSelfKey));
                 routine.yieldedValue = nil;
             }
             [condition unlockWithCondition:HAS_YIELDED];
-            NSLog(@"Routine thread task ended!");
+            //NSLog(@"Routine thread task ended!");
         });
     }
     return self;

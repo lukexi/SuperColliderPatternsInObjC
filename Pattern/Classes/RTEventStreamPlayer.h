@@ -37,7 +37,6 @@ typedef void(^RTEventBlock)(NSDictionary *event);
 
 + (id)eventStreamPlayerWithStream:(RTStream *)stream blocks:(NSArray *)blocks;
 
-@property (nonatomic, strong) RTStream *stream;
 @property (nonatomic, strong) NSDictionary *prototypeEvent;
 
 - (void)addBlock:(RTEventBlock)eventBlock;
