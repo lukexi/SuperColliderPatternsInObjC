@@ -73,7 +73,7 @@
         self.routine = [RTRoutine routineWithBlock:^(RTYieldBlock yield, id inValue) {
             [stream embedInStream:yield inValue:inValue];
         }];
-        NSLog(@"evenstreamplayer routine is %@", self.routine);
+        //NSLog(@"evenstreamplayer routine is %@", self.routine);
         self.prototypeEvent = @{@"dur":@1.0};
     }
     return self;

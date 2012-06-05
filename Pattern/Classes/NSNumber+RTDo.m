@@ -18,7 +18,7 @@
         function([NSNumber numberWithUnsignedInteger:i], &stop);
         if (stop)
         {
-            NSLog(@"rt_do is stopping early!!");
+            //NSLog(@"rt_do is stopping early!!");
             break;
         }
     }

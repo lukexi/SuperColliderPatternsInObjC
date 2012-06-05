@@ -73,7 +73,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"Deallocating and setting context to null for routine %@", self);
+    //NSLog(@"Deallocating and setting context to null for routine %@", self);
 
     // We set the routineQueue to nil to signal the routineBlock that it should stop executing
     dispatch_queue_set_specific(_routineQueue, &kRoutineSelfKey, NULL, NULL);
