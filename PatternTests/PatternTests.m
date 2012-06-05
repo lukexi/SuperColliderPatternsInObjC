@@ -45,8 +45,6 @@
     STAssertNil([routine rt_next], @"Routine should keep yielding nil after all yields have been processed");
     STAssertNil([routine rt_next], @"Routine should keep yielding nil after all yields have been processed");
     routine = nil;
-    
-    NSLog(@"Hi");
 }
 
 - (void)testEmbedRoutine
@@ -74,7 +72,7 @@
         STAssertEqualObjects([routine2 rt_next], @"b", @"routine2 should yield b 2nd");
         STAssertEqualObjects([routine2 rt_next], @"c", @"Embedded routine1 should yield c 3rd");
         STAssertEqualObjects([routine2 rt_next], @"d", @"Embedded routine1 should yield d 4th");
-        STAssertEqualObjects([routine2 rt_next], @"e", @"routine2 should yield d 5th after having control returned to it by routine1");
+        STAssertEqualObjects([routine2 rt_next], @"e", @"routine2 should yield e 5th after having control returned to it by routine1");
         
         NSLog(@"Routine 1 : %@", routine1);
         NSLog(@"Routine 2 : %@", routine2);
@@ -83,7 +81,7 @@
         routine1 = nil;
         routine2 = nil;
     }
-    
+
     STAssertNil(weakRoutine1, @"routine1 should be deallocated after usage");
     STAssertNil(weakRoutine2, @"routine2 should be deallocated after usage");
 }
@@ -115,7 +113,7 @@
 // We run tons of these to make sure Routine memory management is sound
 - (void)testHundredsOfPSeqs
 {
-    for (NSUInteger i = 0; i < 100; i++)
+    for (NSUInteger i = 0; i < 256; i++) // 512 routines/queues/threads/? seems to be the limit, btwfyi
     {
         RTPSeq *PSeq = [RTPSeq PSeqWithList:@[ @1, @2, @3, @4 ] repeats:@3];
         

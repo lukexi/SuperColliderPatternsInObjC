@@ -16,6 +16,10 @@
 @property (nonatomic, strong) id yieldedValue;
 @property (nonatomic, strong) id inValue;
 
+#if !USE_DISPATCH_SEMAPHORES
+@property (nonatomic, strong) NSConditionLock *condition;
+#endif
+
 @end
 
 /*
@@ -40,13 +44,15 @@
 #if USE_DISPATCH_SEMAPHORES
     dispatch_semaphore_t _routineShouldContinue;
     dispatch_semaphore_t _routineHasYielded;
-#else
-    NSConditionLock *_condition;
+    dispatch_semaphore_t _routineHasEnded;
 #endif
     
     dispatch_queue_t _routineQueue;
     BOOL done;
 }
+#if !USE_DISPATCH_SEMAPHORES
+@synthesize condition = _condition;
+#endif
 
 #if !USE_DISPATCH_SEMAPHORES
 #define HAS_YIELDED 0
@@ -67,20 +73,27 @@
 
 - (void)dealloc
 {
-    //NSLog(@"Deallocating and setting context to null for routine %@", self);
+    NSLog(@"Deallocating and setting context to null for routine %@", self);
+
     // We set the routineQueue to nil to signal the routineBlock that it should stop executing
     dispatch_queue_set_specific(_routineQueue, &kRoutineSelfKey, NULL, NULL);
     // We signal the routineBlock so it can unblock and exit now that routineQueue is nil
 #if USE_DISPATCH_SEMAPHORES
     dispatch_semaphore_signal(_routineShouldContinue);
+
+    // dealloc happens on the main thread, so we need to wait for the routine to complete on it's thread before releasing all the semaphores & and the queue.
+    dispatch_semaphore_wait(_routineHasEnded, DISPATCH_TIME_FOREVER);
+    
     dispatch_release(_routineShouldContinue);
     dispatch_release(_routineHasYielded);
+    dispatch_release(_routineHasEnded);
 #else
     [_condition lock];
     [_condition unlockWithCondition:SHOULD_YIELD];
 #endif
+    
     dispatch_release(_routineQueue);
-    NSLog(@"Deallocated routine! %@", self);
+    //NSLog(@"Deallocated routine! %@", self);
 }
 
 static char kRoutineSelfKey;
@@ -96,8 +109,10 @@ static char kRoutineSelfKey;
 #if USE_DISPATCH_SEMAPHORES
         dispatch_semaphore_t routineHasYielded = dispatch_semaphore_create(0);
         dispatch_semaphore_t routineShouldContinue = dispatch_semaphore_create(0);
+        dispatch_semaphore_t routineHasEnded = dispatch_semaphore_create(0);
         _routineHasYielded = routineHasYielded;
         _routineShouldContinue = routineShouldContinue;
+        _routineHasEnded = routineHasEnded;
 #else
         NSConditionLock *condition = [[NSConditionLock alloc] initWithCondition:HAS_YIELDED];
         _condition = condition;
@@ -118,13 +133,14 @@ static char kRoutineSelfKey;
             }
             // We'll access this in rt_next once the HAS_YIELDED lock is obtained by the main thread
             routine.yieldedValue = returnValue;
+
+            //NSLog(@"Yielding %@ and awaiting SHOULD_YIELD/routineShouldContinue", returnValue);
             
 #if USE_DISPATCH_SEMAPHORES
             dispatch_semaphore_signal(routineHasYielded);
             dispatch_semaphore_wait(routineShouldContinue, DISPATCH_TIME_FOREVER);
 #else
             [condition unlockWithCondition:HAS_YIELDED];
-            //NSLog(@"Yielding %@ and awaiting SHOULD_YIELD", returnValue);
             // Now we wait (possibly a while) until the main thread sets our condition back to SHOULD_YIELD
             [condition lockWhenCondition:SHOULD_YIELD];
 #endif
@@ -139,6 +155,7 @@ static char kRoutineSelfKey;
             // We wait to run any of the routineBlock until the first rt_next call happens (which sets our condition to SHOULD_YIELD)
 #if USE_DISPATCH_SEMAPHORES
             dispatch_semaphore_wait(routineShouldContinue, DISPATCH_TIME_FOREVER);
+            //NSLog(@"Finished waiting for routineShouldContinue in routineQueue block");
 #else
             [condition lockWhenCondition:SHOULD_YIELD];
 #endif
@@ -160,7 +177,11 @@ static char kRoutineSelfKey;
 #else
             [condition unlockWithCondition:HAS_YIELDED];
 #endif
+
             //NSLog(@"Routine thread task ended!");
+#if USE_DISPATCH_SEMAPHORES
+            dispatch_semaphore_signal(routineHasEnded);
+#endif
         });
     }
     return self;
