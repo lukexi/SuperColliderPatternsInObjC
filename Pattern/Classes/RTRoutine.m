@@ -31,8 +31,8 @@
  dispatch_semaphore_wait(routineShouldContinue, DISPATCH_TIME_FOREVER);
  
  // Don't forget to release in dealloc
- dispatch_release(main);
- dispatch_release(routine);
+ dispatch_release(routineHasYielded);
+ dispatch_release(routineShouldContinue);
  */
 
 @implementation RTRoutine
