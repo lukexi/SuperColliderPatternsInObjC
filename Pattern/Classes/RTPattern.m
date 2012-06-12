@@ -33,12 +33,12 @@
     RTFuncStreamFunc _func;
 }
 
-+ (RTPFunc *)PFunc:(RTFuncStreamFunc)func
++ (RTPFunc *)func:(RTFuncStreamFunc)func
 {
-    return [[self alloc] initWithPFunc:func];
+    return [[self alloc] initWithFunc:func];
 }
 
-- (id)initWithPFunc:(RTFuncStreamFunc)func
+- (id)initWithFunc:(RTFuncStreamFunc)func
 {
     self = [super init];
     if (self) {
@@ -57,7 +57,7 @@
 
 @implementation RTPBrown
 
-+ (RTPBrown *)PBrownWithLow:(id)low high:(id)high step:(id)step length:(id)length
++ (RTPBrown *)low:(id)low high:(id)high step:(id)step length:(id)length
 {
     RTPBrown *brown = [[self alloc] init];
     brown.low = low;
@@ -120,7 +120,7 @@
 
 @implementation RTPWhite
 
-+ (RTPWhite *)PWhiteWithLow:(id)low high:(id)high length:(id)length
++ (RTPWhite *)low:(id)low high:(id)high length:(id)length
 {
     RTPWhite *white = [[self alloc] init];
     white.low = low;
@@ -159,7 +159,7 @@
 
 @implementation RTPLazy
 
-+ (RTPLazy *)PLazyWithFunc:(RTFuncStreamFunc)func
++ (RTPLazy *)func:(RTFuncStreamFunc)func
 {
     RTPLazy *lazy = [[self alloc] init];
     lazy.func = func;
@@ -175,7 +175,7 @@
 
 @implementation RTPBind
 
-+ (RTPBind *)PBindWithPairs:(NSArray *)patternPairs
++ (RTPBind *)pairs:(NSArray *)patternPairs
 {
     RTPBind *pBind = [[self alloc] init];
     pBind.patternPairs = patternPairs;

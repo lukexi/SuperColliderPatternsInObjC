@@ -7,17 +7,21 @@
 //
 
 #import "RTPattern.h"
+#import "RTListPattern.h"
 
 typedef NSArray *(^RTPSequenceGenerator)(void);
 
-@interface RTPattern (More)
-
-+ (RTPattern *)PnLazyWithFunc:(RTFuncStreamFunc)patternFunc;
-+ (RTPattern *)PnLazySequenceWithGenerator:(RTPSequenceGenerator)generatorFunc repeats:(id)repeats;
+@interface RTPSin : RTPattern
 
 // Phase is 0.0-1.0
-+ (RTPattern *)PSinWithSteps:(NSNumber *)steps phase:(NSNumber *)phase mul:(float)mul add:(float)add;
-+ (RTPattern *)PSinWithSteps:(NSNumber *)steps phase:(NSNumber *)phase from0To:(float)value;
++ (RTPSin *)steps:(NSNumber *)steps phase:(NSNumber *)phase from0To:(float)value;
++ (RTPSin *)steps:(NSNumber *)steps phase:(NSNumber *)phase mul:(float)mul add:(float)add;
 
+@end
+
+@interface RTPnLazy : RTPattern
+
++ (RTPnLazy *)func:(RTFuncStreamFunc)patternFunc;
++ (RTPnLazy *)sequenceWithGenerator:(RTPSequenceGenerator)generatorFunc repeats:(id)repeats;
 
 @end

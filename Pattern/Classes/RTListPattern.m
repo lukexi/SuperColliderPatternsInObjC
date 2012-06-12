@@ -22,11 +22,11 @@
 
 @implementation RTPSeq
 
-+ (id)PSeqWithList:(NSArray *)list repeats:(id)repeats
++ (id)list:(NSArray *)list repeats:(id)repeats
 {
-    return [self PSeqWithList:list repeats:repeats offset:@0];
+    return [self list:list repeats:repeats offset:@0];
 }
-+ (id)PSeqWithList:(NSArray *)list repeats:(id)repeats offset:(id)offset
++ (id)list:(NSArray *)list repeats:(id)repeats offset:(id)offset
 {
     RTPSeq *seq = [self listPatternWithList:list repeats:repeats];
     seq.offset = offset;
@@ -92,7 +92,7 @@
 
 @implementation RTPRand
 
-+ (id)PRandWithList:(NSArray *)list repeats:(id)repeats
++ (id)list:(NSArray *)list repeats:(id)repeats
 {
     return [self listPatternWithList:list repeats:repeats];
 }

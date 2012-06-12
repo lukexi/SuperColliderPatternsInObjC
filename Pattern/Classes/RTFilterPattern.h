@@ -16,7 +16,7 @@
 
 @interface RTPn : RTFilterPattern
 
-+ (RTPn *)PnWithPattern:(RTPattern *)pattern repeats:(id)repeats;
++ (RTPn *)pattern:(RTPattern *)pattern repeats:(id)repeats;
 @property (nonatomic, strong) id repeats;
 
 @end

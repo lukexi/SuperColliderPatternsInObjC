@@ -115,7 +115,7 @@
 {
     for (NSUInteger i = 0; i < 256; i++) // 512 routines/queues/threads/? seems to be the limit, btwfyi
     {
-        RTPSeq *PSeq = [RTPSeq PSeqWithList:@[ @1, @2, @3, @4 ] repeats:@3];
+        RTPSeq *PSeq = [RTPSeq list:@[ @1, @2, @3, @4 ] repeats:@3];
         
         RTRoutine *routine = [PSeq rt_asStream];
         
@@ -137,8 +137,8 @@
 {
     __weak RTEventStreamPlayer *weakEventStreamPlayer;
     @autoreleasepool {
-        RTPBind *bind = [RTPBind PBindWithPairs:@[
-                         @"dur", [RTPSeq PSeqWithList:@[@0.1, @0.1, @0.1] repeats:@3]
+        RTPBind *bind = [RTPBind pairs:@[
+                         @"dur", [RTPSeq list:@[@0.1, @0.1, @0.1] repeats:@3]
                          ]];
         RTEventStreamPlayer *eventStreamPlayer = [bind playBlock:^(NSDictionary *event) {
             STAssertEqualObjects(@{@"dur":@0.1}, event, @"Event should look like @{@\"dur\":@0.1}");
@@ -159,7 +159,7 @@
 {
     __weak RTRoutine *weakRoutine;
     @autoreleasepool {
-        RTRoutine *routine = [[RTPWhite PWhiteWithLow:@0 high:@1000 length:RTInf] rt_asStream];
+        RTRoutine *routine = [[RTPWhite low:@0 high:@1000 length:RTInf] rt_asStream];
         weakRoutine = routine;
         
         [routine nextN:100];

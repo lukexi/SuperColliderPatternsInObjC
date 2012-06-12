@@ -18,8 +18,8 @@
 @end
 
 @interface RTPSeq : RTListPattern
-+ (id)PSeqWithList:(NSArray *)list repeats:(id)repeats;
-+ (id)PSeqWithList:(NSArray *)list repeats:(id)repeats offset:(id)offset;
++ (id)list:(NSArray *)list repeats:(id)repeats;
++ (id)list:(NSArray *)list repeats:(id)repeats offset:(id)offset;
 
 @property (nonatomic, strong) id offset;
 
@@ -33,6 +33,6 @@
 
 @interface RTPRand : RTListPattern
 
-+ (id)PRandWithList:(NSArray *)list repeats:(id)repeats;
++ (id)list:(NSArray *)list repeats:(id)repeats;
 
 @end

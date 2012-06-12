@@ -14,7 +14,7 @@
 
 @implementation RTPn
 
-+ (RTPn *)PnWithPattern:(RTPattern *)pattern repeats:(id)repeats
++ (RTPn *)pattern:(RTPattern *)pattern repeats:(id)repeats
 {
     RTPn *pn = [[self alloc] init];
     pn.pattern = pattern;

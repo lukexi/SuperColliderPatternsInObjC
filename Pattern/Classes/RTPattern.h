@@ -19,13 +19,13 @@
 
 @interface RTPFunc : RTPattern
 
-+ (RTPFunc *)PFunc:(RTFuncStreamFunc)func;
++ (RTPFunc *)func:(RTFuncStreamFunc)func;
 
 @end
 
 @interface RTPBrown : RTPattern
 
-+ (RTPBrown *)PBrownWithLow:(id)low high:(id)high step:(id)step length:(id)length;
++ (RTPBrown *)low:(id)low high:(id)high step:(id)step length:(id)length;
 @property (nonatomic, strong) id low;
 @property (nonatomic, strong) id high;
 @property (nonatomic, strong) id step;
@@ -35,7 +35,7 @@
 
 @interface RTPWhite : RTPattern
 
-+ (RTPWhite *)PWhiteWithLow:(id)low high:(id)high length:(id)length;
++ (RTPWhite *)low:(id)low high:(id)high length:(id)length;
 @property (nonatomic, strong) id low;
 @property (nonatomic, strong) id high;
 @property (nonatomic, strong) id length;
@@ -44,14 +44,14 @@
 
 @interface RTPLazy : RTPattern
 
-+ (RTPLazy *)PLazyWithFunc:(RTFuncStreamFunc)func;
++ (RTPLazy *)func:(RTFuncStreamFunc)func;
 @property (nonatomic, strong) RTFuncStreamFunc func;
 
 @end
 
 @interface RTPBind : RTPattern
 
-+ (RTPBind *)PBindWithPairs:(NSArray *)patternPairs;
++ (RTPBind *)pairs:(NSArray *)patternPairs;
 // You must pass in a prototype dictionary when calling next: on RTPBind
 @property (nonatomic, strong) NSArray *patternPairs;
 
