@@ -77,6 +77,11 @@
 		C22DC7C0157B8C56000004C3 /* RTPattern+More.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F1157B310D000004C3 /* RTPattern+More.h */; };
 		C22DC7C1157B8C56000004C3 /* RTRoutine.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F3157B310D000004C3 /* RTRoutine.h */; };
 		C22DC7C2157B8C56000004C3 /* RTStream.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DC6F5157B310D000004C3 /* RTStream.h */; };
+		C2499D47159990F400DA9B9F /* NSArray+Flop.h in Headers */ = {isa = PBXBuildFile; fileRef = C2499D45159990F400DA9B9F /* NSArray+Flop.h */; };
+		C2499D48159990F400DA9B9F /* NSArray+Flop.h in Headers */ = {isa = PBXBuildFile; fileRef = C2499D45159990F400DA9B9F /* NSArray+Flop.h */; };
+		C2499D49159990F400DA9B9F /* NSArray+Flop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2499D46159990F400DA9B9F /* NSArray+Flop.m */; };
+		C2499D4A159990F400DA9B9F /* NSArray+Flop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2499D46159990F400DA9B9F /* NSArray+Flop.m */; };
+		C2499D4B159990F400DA9B9F /* NSArray+Flop.m in Sources */ = {isa = PBXBuildFile; fileRef = C2499D46159990F400DA9B9F /* NSArray+Flop.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +132,8 @@
 		C22DC6F5157B310D000004C3 /* RTStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTStream.h; path = Pattern/Classes/RTStream.h; sourceTree = "<group>"; };
 		C22DC6F6157B310D000004C3 /* RTStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTStream.m; path = Pattern/Classes/RTStream.m; sourceTree = "<group>"; };
 		C22DC7C6157B8C56000004C3 /* libPattern OS X.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPattern OS X.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2499D45159990F400DA9B9F /* NSArray+Flop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Flop.h"; path = "Pattern/Classes/NSArray+Flop.h"; sourceTree = "<group>"; };
+		C2499D46159990F400DA9B9F /* NSArray+Flop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Flop.m"; path = "Pattern/Classes/NSArray+Flop.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +170,8 @@
 		C22DC6A5157B3073000004C3 = {
 			isa = PBXGroup;
 			children = (
+				C2499D45159990F400DA9B9F /* NSArray+Flop.h */,
+				C2499D46159990F400DA9B9F /* NSArray+Flop.m */,
 				C22DC6B5157B3073000004C3 /* Pattern */,
 				C22DC6C9157B3073000004C3 /* PatternTests */,
 				C22DC6B2157B3073000004C3 /* Frameworks */,
@@ -280,6 +289,7 @@
 				C22DC713157B310D000004C3 /* RTPattern+More.h in Headers */,
 				C22DC716157B310D000004C3 /* RTRoutine.h in Headers */,
 				C22DC719157B310D000004C3 /* RTStream.h in Headers */,
+				C2499D47159990F400DA9B9F /* NSArray+Flop.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +310,7 @@
 				C22DC7C0157B8C56000004C3 /* RTPattern+More.h in Headers */,
 				C22DC7C1157B8C56000004C3 /* RTRoutine.h in Headers */,
 				C22DC7C2157B8C56000004C3 /* RTStream.h in Headers */,
+				C2499D48159990F400DA9B9F /* NSArray+Flop.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +442,7 @@
 				C22DC714157B310D000004C3 /* RTPattern+More.m in Sources */,
 				C22DC717157B310D000004C3 /* RTRoutine.m in Sources */,
 				C22DC71A157B310D000004C3 /* RTStream.m in Sources */,
+				C2499D49159990F400DA9B9F /* NSArray+Flop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +463,7 @@
 				C22DC715157B310D000004C3 /* RTPattern+More.m in Sources */,
 				C22DC718157B310D000004C3 /* RTRoutine.m in Sources */,
 				C22DC71B157B310D000004C3 /* RTStream.m in Sources */,
+				C2499D4A159990F400DA9B9F /* NSArray+Flop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +483,7 @@
 				C22DC7B0157B8C56000004C3 /* RTPattern+More.m in Sources */,
 				C22DC7B1157B8C56000004C3 /* RTRoutine.m in Sources */,
 				C22DC7B2157B8C56000004C3 /* RTStream.m in Sources */,
+				C2499D4B159990F400DA9B9F /* NSArray+Flop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
